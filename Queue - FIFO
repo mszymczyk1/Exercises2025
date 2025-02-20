@@ -1,0 +1,33 @@
+from collections import deque
+class Queue:
+    def __init__(self):
+        self.queue = deque()
+    
+    def enqueue(self, value):
+        self.queue.append(value)
+        
+    def is_empty(self):
+        return len(self.queue) == 0
+    
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.popleft()
+        return "Queue is empty!!"
+        
+    def print_queue(self):
+        if not self.is_empty():
+            print(list(self.queue))
+        print("Queue is empty!!")
+        
+queue_1 = Queue()
+print(queue_1.is_empty())
+queue_1.enqueue(1)
+queue_1.enqueue(2)
+queue_1.enqueue(3)
+queue_1.print_queue()
+print(queue_1.is_empty())
+print(queue_1.dequeue())
+print(queue_1.dequeue())
+print(queue_1.dequeue())
+print(queue_1.is_empty())
+queue_1.print_queue()
