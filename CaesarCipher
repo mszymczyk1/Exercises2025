@@ -1,0 +1,14 @@
+def caesarCipher(s, k):
+    original_alphabet = list("abcdefghijklmnopqrstuvwxyz")
+    k = k % len(original_alphabet)
+    rotated_alphabet = original_alphabet[k:] + original_alphabet[:k]
+    encryption = dict(zip(original_alphabet, rotated_alphabet))
+    encrypted_text = []
+    for letter in s:
+        if letter in encryption:
+            encrypted_text.append(encryption[letter])
+        elif letter.lower() in encryption:
+            encrypted_text.append(encryption[letter.lower()].upper())
+        else:
+            encrypted_text.append(letter)
+    return ''.join(encrypted_text)
