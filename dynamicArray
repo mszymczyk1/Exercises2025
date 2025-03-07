@@ -1,0 +1,21 @@
+# Complete the 'dynamicArray' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. 2D_INTEGER_ARRAY queries
+#
+
+def dynamicArray(n, queries):
+    arr = [[] for _ in range(n)]
+    last_answer_list = []
+    last_answer = 0
+    for query in queries:
+        query_type, x, y = query
+        idx = (x^last_answer)%n
+        if query_type == 1:
+            arr[idx].append(y)
+        elif query_type == 2:
+            last_answer = arr[idx][y % len(arr[idx])]
+            last_answer_list.append(last_answer)
+    return last_answer_list
