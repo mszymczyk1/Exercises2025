@@ -1,0 +1,9 @@
+import re
+
+def isBalanced(s):
+    prev = None
+    while s != prev:
+        prev = s
+        s = re.sub(r'\(\)|\[\]|\{\}', '', s)
+    
+    return 'YES' if not s else 'NO'
