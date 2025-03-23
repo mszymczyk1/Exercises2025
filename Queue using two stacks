@@ -1,0 +1,14 @@
+q = int(input())
+queue = []
+
+while q:
+    query = input()
+    q -= 1
+
+    if query.startswith('1'):
+        query2, x = query.split()
+        queue.append(x)
+    elif query.startswith('2'):
+        queue.remove(queue[0])
+    elif query.startswith('3'):
+        print(queue[0])
