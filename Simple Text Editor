@@ -1,0 +1,29 @@
+q = int(input())
+s = ''
+history = [] 
+
+for _ in range(q):
+    parts = input().split()
+    op = parts[0]
+
+    if op == '1':
+        w = parts[1]
+        s += w
+        history.append(('1', len(w))) 
+
+    elif op == '2':
+        k = int(parts[1])
+        removed = s[-k:]
+        s = s[:-k]
+        history.append(('2', removed)) 
+    elif op == '3':
+        k = int(parts[1])
+        print(s[k - 1])
+
+    elif op == '4':
+        if history:
+            last_op, value = history.pop()
+            if last_op == '1':
+                s = s[:-value]
+            elif last_op == '2':
+                s += value
