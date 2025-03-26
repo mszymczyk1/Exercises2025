@@ -1,0 +1,12 @@
+def cookies(k, A):
+    count = 0
+    heapq.heapify(A)
+    while len(A) >=2 and A[0] < k:
+        count += 1
+        new_sweetness = heapq.heappop(A) + 2 * heapq.heappop(A)
+        heapq.heappush(A, new_sweetness)
+
+    if A and A[0] >= k:
+        return count
+    else:
+        return -1
